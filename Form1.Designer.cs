@@ -1,4 +1,7 @@
-﻿namespace Tic_Tac_Toe
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace Tic_Tac_Toe
 {
     partial class Form1
     {
@@ -41,6 +44,7 @@
             this.currentPlayerSymbolLabel = new System.Windows.Forms.Label();
             this.winnerLabel = new System.Windows.Forms.Label();
             this.retryButton = new System.Windows.Forms.Button();
+            this.quitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -169,12 +173,23 @@
             this.retryButton.UseVisualStyleBackColor = true;
             this.retryButton.Click += new System.EventHandler(this.retryButton_Click_1);
             // 
+            // quitButton
+            // 
+            this.quitButton.Location = new System.Drawing.Point(72, 311);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Size = new System.Drawing.Size(102, 45);
+            this.quitButton.TabIndex = 18;
+            this.quitButton.Text = "Q U I T";
+            this.quitButton.UseVisualStyleBackColor = true;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(384, 368);
+            this.Controls.Add(this.quitButton);
             this.Controls.Add(this.retryButton);
             this.Controls.Add(this.winnerLabel);
             this.Controls.Add(this.currentPlayerSymbolLabel);
@@ -212,6 +227,7 @@
         private System.Windows.Forms.Label currentPlayerSymbolLabel;
         private System.Windows.Forms.Label winnerLabel;
         private System.Windows.Forms.Button retryButton;
+        private System.Windows.Forms.Button quitButton;
     }
 }
 

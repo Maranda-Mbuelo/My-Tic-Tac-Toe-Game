@@ -22,6 +22,7 @@ namespace Tic_Tac_Toe
             currentPlayerSymbolLabel.Text = currentPlayer.ToString();
             retryButton.Text = "Retry";
             retryButton.Visible = false;
+            quitButton.Visible = false;
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -44,8 +45,20 @@ namespace Tic_Tac_Toe
                 if (totalButtonClicks == 9)
                 {
                     winnerLabel.Text = "It's a Tie";
+
+                    foreach (Control control in Controls)
+                    {
+                        if (control is Button)
+                        {
+
+                            control.BackColor = SystemColors.Highlight;
+                            
+                        }
+                    }
+
                     DisableAllButtons();
                     retryButton.Visible = true;
+                    quitButton.Visible = true;
                     return;
                 }
 
@@ -70,6 +83,7 @@ namespace Tic_Tac_Toe
                 {
                     control.Enabled = false;
                     retryButton.Enabled = true;
+                    quitButton.Enabled = true;
                 }
             }
         }
@@ -94,6 +108,7 @@ namespace Tic_Tac_Toe
 
                 // make the retry button visible
                 retryButton.Visible = true;
+                quitButton.Visible = true;
 
 
 
@@ -115,6 +130,7 @@ namespace Tic_Tac_Toe
                     button9.BackColor = Color.Blue;
                 }
                 retryButton.Visible = true;
+                quitButton.Visible = true;
 
                 return true;
             }
@@ -135,6 +151,8 @@ namespace Tic_Tac_Toe
                 }
 
                 retryButton.Visible = true;
+                quitButton.Visible = true;
+                
 
                 return true;
             }
@@ -155,6 +173,7 @@ namespace Tic_Tac_Toe
                 }
 
                 retryButton.Visible = true;
+                quitButton.Visible = true;
 
                 return true;
             }
@@ -175,6 +194,7 @@ namespace Tic_Tac_Toe
                 }
 
                 retryButton.Visible = true;
+                quitButton.Visible = true;
 
                 return true;
             }
@@ -195,6 +215,7 @@ namespace Tic_Tac_Toe
                 }
 
                 retryButton.Visible = true;
+                quitButton.Visible = true;
 
                 return true;
             }
@@ -216,6 +237,7 @@ namespace Tic_Tac_Toe
                 }
 
                 retryButton.Visible = true;
+                quitButton.Visible = true;
 
                 return true;
             }
@@ -236,6 +258,7 @@ namespace Tic_Tac_Toe
                 }
 
                 retryButton.Visible = true;
+                quitButton.Visible = true;
 
                 return true;
             }
@@ -264,7 +287,14 @@ namespace Tic_Tac_Toe
 
             // hide the retry button again
             retryButton.Visible = false;
+            quitButton.Visible = false;
             retryButton.Text = "R e t r y";
+        }
+
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+
+            Application.Exit();
         }
     }
 }
