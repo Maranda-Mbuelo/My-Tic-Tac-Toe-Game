@@ -37,9 +37,10 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.championWin = new System.Windows.Forms.Label();
             this.currentPlayerSymbolLabel = new System.Windows.Forms.Label();
             this.winnerLabel = new System.Windows.Forms.Label();
+            this.retryButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -132,14 +133,14 @@
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button_Click);
             // 
-            // label1
+            // championWin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "It\'s Your Turn player: ";
+            this.championWin.AutoSize = true;
+            this.championWin.Location = new System.Drawing.Point(72, 31);
+            this.championWin.Name = "championWin";
+            this.championWin.Size = new System.Drawing.Size(107, 13);
+            this.championWin.TabIndex = 14;
+            this.championWin.Text = "It\'s Your Turn player: ";
             // 
             // currentPlayerSymbolLabel
             // 
@@ -154,19 +155,30 @@
             this.winnerLabel.AutoSize = true;
             this.winnerLabel.Location = new System.Drawing.Point(75, 296);
             this.winnerLabel.Name = "winnerLabel";
-            this.winnerLabel.Size = new System.Drawing.Size(64, 13);
+            this.winnerLabel.Size = new System.Drawing.Size(10, 13);
             this.winnerLabel.TabIndex = 16;
-            this.winnerLabel.Text = "winnerLabel";
+            this.winnerLabel.Text = " ";
+            // 
+            // retryButton
+            // 
+            this.retryButton.Location = new System.Drawing.Point(204, 311);
+            this.retryButton.Name = "retryButton";
+            this.retryButton.Size = new System.Drawing.Size(96, 45);
+            this.retryButton.TabIndex = 17;
+            this.retryButton.Text = "R e t r y";
+            this.retryButton.UseVisualStyleBackColor = true;
+            this.retryButton.Click += new System.EventHandler(this.retryButton_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(384, 338);
+            this.ClientSize = new System.Drawing.Size(384, 368);
+            this.Controls.Add(this.retryButton);
             this.Controls.Add(this.winnerLabel);
             this.Controls.Add(this.currentPlayerSymbolLabel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.championWin);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button11);
@@ -196,9 +208,10 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label championWin;
         private System.Windows.Forms.Label currentPlayerSymbolLabel;
         private System.Windows.Forms.Label winnerLabel;
+        private System.Windows.Forms.Button retryButton;
     }
 }
 

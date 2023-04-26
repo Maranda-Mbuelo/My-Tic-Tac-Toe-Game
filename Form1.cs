@@ -15,10 +15,13 @@ namespace Tic_Tac_Toe
         char currentPlayer = 'x';
         int totalButtonClicks = 0;
 
+
         public Form1()
         {
             InitializeComponent();
             currentPlayerSymbolLabel.Text = currentPlayer.ToString();
+            retryButton.Text = "Retry";
+            retryButton.Visible = false;
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -31,15 +34,18 @@ namespace Tic_Tac_Toe
 
                 if (checkIsWinner())
                 {
-                    winnerLabel.Text = "You Won";
+                    winnerLabel.Text = "Game Over";
+                    championWin.Text = "Player " + currentPlayer + " Won!";
+                    currentPlayerSymbolLabel.Text = "";
                     DisableAllButtons();
                     return;
                 }
 
                 if (totalButtonClicks == 9)
                 {
-                    winnerLabel.Text = "Tie";
+                    winnerLabel.Text = "It's a Tie";
                     DisableAllButtons();
+                    retryButton.Visible = true;
                     return;
                 }
 
@@ -63,6 +69,7 @@ namespace Tic_Tac_Toe
                 if (control is Button)
                 {
                     control.Enabled = false;
+                    retryButton.Enabled = true;
                 }
             }
         }
@@ -85,6 +92,11 @@ namespace Tic_Tac_Toe
                     button11.BackColor = Color.Blue;
                 }
 
+                // make the retry button visible
+                retryButton.Visible = true;
+
+
+
                 return true;
             }
 
@@ -102,6 +114,7 @@ namespace Tic_Tac_Toe
                     button4.BackColor = Color.Blue;
                     button9.BackColor = Color.Blue;
                 }
+                retryButton.Visible = true;
 
                 return true;
             }
@@ -121,6 +134,8 @@ namespace Tic_Tac_Toe
                     button7.BackColor = Color.Blue;
                 }
 
+                retryButton.Visible = true;
+
                 return true;
             }
 
@@ -138,6 +153,8 @@ namespace Tic_Tac_Toe
                     button4.BackColor = Color.Blue;
                     button6.BackColor = Color.Blue;
                 }
+
+                retryButton.Visible = true;
 
                 return true;
             }
@@ -157,6 +174,8 @@ namespace Tic_Tac_Toe
                     button5.BackColor = Color.Blue;
                 }
 
+                retryButton.Visible = true;
+
                 return true;
             }
 
@@ -174,6 +193,8 @@ namespace Tic_Tac_Toe
                     button9.BackColor = Color.Blue;
                     button11.BackColor = Color.Blue;
                 }
+
+                retryButton.Visible = true;
 
                 return true;
             }
@@ -193,6 +214,9 @@ namespace Tic_Tac_Toe
                     button3.BackColor = Color.Blue;
                     button7.BackColor = Color.Blue;
                 }
+
+                retryButton.Visible = true;
+
                 return true;
             }
 
@@ -211,10 +235,36 @@ namespace Tic_Tac_Toe
                     button11.BackColor = Color.Blue;
                 }
 
+                retryButton.Visible = true;
+
                 return true;
             }
 
             return false;
+        }
+
+        private void retryButton_Click_1(object sender, EventArgs e)
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is Button)
+                {
+                    control.Enabled = true;
+                    control.BackColor = SystemColors.ScrollBar;
+                    control.Text = "";
+                }
+            }
+
+            // reset labels and counters
+            currentPlayer = 'x';
+            totalButtonClicks = 0;
+            currentPlayerSymbolLabel.Text = currentPlayer.ToString();
+            championWin.Text = "It's Your Turn Player: ";
+            winnerLabel.Text = "";
+
+            // hide the retry button again
+            retryButton.Visible = false;
+            retryButton.Text = "R e t r y";
         }
     }
 }
